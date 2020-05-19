@@ -114,3 +114,9 @@ slideSprite = sprite_get("slide");
 //duck animation variables
 duckSpriteIndex = idleSprite;
 duckImageIndex = 0;
+
+//friction variables
+standGroundFriction = ground_friction;
+standAirFriction = air_friction;
+slideGroundFriction = ground_friction/3;
+slideAirFriction = air_friction/3;

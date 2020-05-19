@@ -2,6 +2,7 @@ sprite_change_offset("idle", 24, 52);
 sprite_change_offset("idle_quack", 24, 52);
 sprite_change_offset("hurt", 32, 62);
 sprite_change_offset("crouch", 24, 52);
+sprite_change_offset("slide", 24, 52);
 sprite_change_offset("walk", 24, 52);
 sprite_change_offset("walkturn", 32, 62);
 sprite_change_offset("dash", 32, 62);
@@ -42,6 +43,10 @@ sprite_change_offset("fspecial", 64, 94);
 sprite_change_offset("uspecial", 64, 94);
 sprite_change_offset("dspecial", 64, 94);
 sprite_change_offset("taunt", 32, 62);
+
+sprite_change_offset("hurtbox", 24, 52);
+sprite_change_offset("crouchbox", 24, 52);
+sprite_change_offset("airbox", 24, 52);
 
 sprite_change_offset("plat", 64, 94);
 

@@ -10,12 +10,12 @@ walk_anim_speed = .1;
 dash_anim_speed = .2;
 pratfall_anim_speed = .25;
 
-walk_speed = 3.25;
+walk_speed = 3;
 walk_accel = 0.2;
 walk_turn_time = 6;
 initial_dash_time = 14;
 initial_dash_speed = 8;
-dash_speed = 7.5;
+dash_speed = 7;
 dash_turn_time = 10;
 dash_turn_accel = 1.5;
 dash_stop_time = 4;
@@ -97,3 +97,20 @@ air_dodge_sound = asset_get("sfx_quick_dodge");
 //visual offsets for when you're in Ranno's bubble
 bubble_x = 0;
 bubble_y = 8;
+
+// duck states
+DS_STAND = 0;
+DS_CROUCH = 1;
+// duck uses custom states
+duckState = DS_STAND;
+
+//common sprites
+idleSprite = sprite_get("idle");
+walkSprite = sprite_get("walk");
+jumpSprite = sprite_get("jump");
+crouchSprite = sprite_get("crouch");
+slideSprite = sprite_get("slide");
+
+//duck animation variables
+duckSpriteIndex = idleSprite;
+duckImageIndex = 0;

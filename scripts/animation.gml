@@ -1,9 +1,28 @@
-switch (state){
-    case PS_IDLE:
-    case PS_RESPAWN:
-    case PS_SPAWN:
-    break;
-    
-    case PS_WALK:
-    break;
+//animation
+
+if(duckState == DS_STAND){
+    if(free){
+        changeSprite(jumpSprite);
+        if(vsp < 0){
+            duckImageIndex = 0;
+        } else {
+            duckImageIndex = 1;
+        }
+    } else {
+        var absoluteHSP = abs(hsp)
+        if(absoluteHSP > .3){
+            changeSprite(walkSprite);
+            duckImageIndex += absoluteHSP*(walk_anim_speed/walk_speed);
+        } else {
+            changeSprite(idleSprite);
+        }
+    }
+}
+sprite_index = duckSpriteIndex;
+image_index = floor(duckImageIndex);
+
+#define changeSprite(newSprite)
+if(duckSpriteIndex != newSprite){
+    duckSpriteIndex = newSprite;
+    duckImageIndex = 0;
 }

@@ -9,7 +9,7 @@ if(down_hard_pressed || state == PS_CROUCH){
 
 //attribute control
 
-if(vsp == fast_fall){
+if(vsp == fast_fall && state != PS_HITSTUN){
     vsp = prevVsp;
 }
 if(duckState == DS_STAND){

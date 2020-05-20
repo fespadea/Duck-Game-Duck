@@ -34,16 +34,16 @@ jump_change = 3; //maximum hsp when double jumping. If already going faster, it 
 air_accel = .3;
 prat_fall_accel = .85; //multiplier of air_accel while in pratfall
 air_friction = .02;
-max_djumps = 1;
+max_djumps = 0;
 double_jump_time = 32; //the number of frames to play the djump animation. Can't be less than 31.
 walljump_hsp = 7;
 walljump_vsp = 11;
 walljump_time = 32;
 max_fall = 13; //maximum fall speed without fastfalling
-fast_fall = 16; //fast fall speed
+fast_fall = max_fall+1; //fast fall speed
 gravity_speed = .65;
 hitstun_grav = .5;
-knockback_adj = 1.0; //the multiplier to KB dealt to you. 1 = default, >1 = lighter, <1 = heavier
+knockback_adj = 1.2; //the multiplier to KB dealt to you. 1 = default, >1 = lighter, <1 = heavier
 
 land_time = 4; //normal landing frames
 prat_land_time = 3;
@@ -115,8 +115,21 @@ slideSprite = sprite_get("slide");
 duckSpriteIndex = idleSprite;
 duckImageIndex = 0;
 
-//friction variables
+//attribute variables
+//DS_STAND
 standGroundFriction = ground_friction;
 standAirFriction = air_friction;
+standJumpSpeed = jump_speed;
+standHopSpeed = short_hop_speed;
+standJumpHsp = max_jump_hsp;
+standLeaveGroundHsp = leave_ground_max;
+standAirHsp = air_max_speed;
+//DS_CROUCH
 slideGroundFriction = ground_friction/3;
 slideAirFriction = air_friction/3;
+slideJumpSpeed = jump_speed/2;
+slideHopSpeed = short_hop_speed/2;
+
+//previous speeds
+prevVsp = vsp;
+prevHsp = hsp;

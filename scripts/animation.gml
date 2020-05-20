@@ -22,7 +22,7 @@ if(duckState == DS_STAND){
 } else if(duckState == DS_CROUCH){
     pHurtBox.sprite_index = crouchbox_spr;
     var absoluteHSP = abs(hsp)
-    if(absoluteHSP > .3){
+    if(absoluteHSP > .3 && !free){
         changeSprite(slideSprite);
         duckImageIndex = 0;
     } else if (duckSpriteIndex != slideSprite) {

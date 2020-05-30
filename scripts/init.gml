@@ -24,7 +24,7 @@ ground_friction = .6;
 moonwalk_accel = 1.4;
 
 jump_start_time = 5;
-jump_speed = 13;
+jump_speed = 12;
 short_hop_speed = 8;
 djump_speed = 12;
 leave_ground_max = 7; //the maximum hsp you can have when you go from grounded to aerial without jumping
@@ -39,9 +39,9 @@ double_jump_time = 32; //the number of frames to play the djump animation. Can't
 walljump_hsp = 7;
 walljump_vsp = 11;
 walljump_time = 32;
-max_fall = 8; //maximum fall speed without fastfalling
+max_fall = 10; //maximum fall speed without fastfalling
 fast_fall = max_fall+1; //fast fall speed (this value just needs to be a speed duck can't reach since they can't fast fall)
-gravity_speed = .4;
+gravity_speed = .5;
 hitstun_grav = .5;
 knockback_adj = 1.2; //the multiplier to KB dealt to you. 1 = default, >1 = lighter, <1 = heavier
 
@@ -104,12 +104,32 @@ DS_CROUCH = 1;
 // duck uses custom states
 duckState = DS_STAND;
 
-//common sprites
-idleSprite = sprite_get("idle");
-walkSprite = sprite_get("walk");
-jumpSprite = sprite_get("jump");
-crouchSprite = sprite_get("crouch");
-slideSprite = sprite_get("slide");
+//duck sprites
+idleSprite[1] = sprite_get("idle_quack");
+idleSprite[0] = sprite_get("idle");
+crouchSprite[1] = sprite_get("crouch_quack");
+crouchSprite[0] = sprite_get("crouch");
+walkSprite[1] = sprite_get("walk_quack");
+walkSprite[0] = sprite_get("walk");
+jumpSprite[1] = sprite_get("jump_quack");
+jumpSprite[0] = sprite_get("jump");
+slideSprite[1] = sprite_get("slide_quack");
+slideSprite[0] = sprite_get("slide");
+hurtSprite[1] = sprite_get("hurt_quack");
+hurtSprite[0] = sprite_get("hurt");
+
+//wing sprites
+wingIdleSprite = sprite_get("wing_idle");
+wingCrouchSprite = sprite_get("wing_crouch");
+wingWalkSprite = sprite_get("wing_walk");
+windJumpSprite = sprite_get("wing_jump");
+wingGlideSprite = sprite_get("wing_glide");
+//left wing sprites
+wingLeftJumpSprite = sprite_get("wing_left_jump");
+wingLeftGlideSprite = sprite_get("wing_left_glide");
+
+//wing article
+wingArticle = instance_create(x, y, "obj_article1");
 
 //duck animation variables
 duckSpriteIndex = idleSprite;
@@ -119,6 +139,7 @@ duckImageIndex = 0;
 //DS_STAND
 standGroundFriction = ground_friction;
 standAirFriction = air_friction;
+standMaxFall = max_fall;
 standJumpSpeed = jump_speed;
 standHopSpeed = short_hop_speed;
 standJumpHsp = max_jump_hsp;
@@ -129,7 +150,14 @@ slideGroundFriction = ground_friction/3;
 slideAirFriction = air_friction/3;
 slideJumpSpeed = jump_speed/2;
 slideHopSpeed = short_hop_speed/2;
+slideMaxFall = max_fall;
 
 //previous speeds
 prevVsp = vsp;
 prevHsp = hsp;
+
+//float variable
+floatActive = false;
+
+//variable to indicate that the left arm needs to be drawn for falling
+fallingSoDrawLeft = false;

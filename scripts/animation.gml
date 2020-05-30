@@ -1,4 +1,5 @@
 //animation
+fallingSoDrawLeft = false;
 
 if(duckState == DS_STAND){
     if(free){
@@ -8,6 +9,7 @@ if(duckState == DS_STAND){
             duckImageIndex = 0;
         } else {
             duckImageIndex = 1;
+            fallingSoDrawLeft = true;
         }
     } else {
         pHurtBox.sprite_index = air_hurtbox_spr;
@@ -29,7 +31,7 @@ if(duckState == DS_STAND){
         changeSprite(crouchSprite);
     }
 }
-sprite_index = duckSpriteIndex;
+sprite_index = duckSpriteIndex[taunt_down ? 1 : 0];
 image_index = floor(duckImageIndex);
 
 #define changeSprite(newSprite)

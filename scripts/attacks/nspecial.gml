@@ -25,9 +25,7 @@ set_window_value(AT_NSPECIAL, 3, AG_WINDOW_ANIM_FRAME_START, 3);
 
 set_num_hitboxes(AT_NSPECIAL, 1);
 
-set_hitbox_value(AT_NSPECIAL, 1, HG_PARENT_HITBOX, 1);
-set_hitbox_value(AT_NSPECIAL, 1, HG_HITBOX_TYPE, 2);
-set_hitbox_value(AT_NSPECIAL, 1, HG_WINDOW, 2);
+set_hitbox_value(AT_NSPECIAL, 1, HG_HITBOX_TYPE, 1);
 set_hitbox_value(AT_NSPECIAL, 1, HG_LIFETIME, 30);
 set_hitbox_value(AT_NSPECIAL, 1, HG_HITBOX_X, 32);
 set_hitbox_value(AT_NSPECIAL, 1, HG_WIDTH, 90);
@@ -37,7 +35,3 @@ set_hitbox_value(AT_NSPECIAL, 1, HG_DAMAGE, 3);
 set_hitbox_value(AT_NSPECIAL, 1, HG_ANGLE, 50);
 set_hitbox_value(AT_NSPECIAL, 1, HG_VISUAL_EFFECT_Y_OFFSET, -16);
 set_hitbox_value(AT_NSPECIAL, 1, HG_HITSTUN_MULTIPLIER, -1);
-set_hitbox_value(AT_NSPECIAL, 1, HG_PROJECTILE_SPRITE, sprite_get("nspecial_proj"));
-set_hitbox_value(AT_NSPECIAL, 1, HG_PROJECTILE_MASK, sprite_get("nspecial_proj"));
-set_hitbox_value(AT_NSPECIAL, 1, HG_PROJECTILE_ANIM_SPEED, .2);
-set_hitbox_value(AT_NSPECIAL, 1, HG_PROJECTILE_HSPEED, 18);

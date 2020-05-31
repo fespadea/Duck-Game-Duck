@@ -18,6 +18,7 @@ sprite_change_offset("airbox", 24, 52);
 
 sprite_change_offset("wing_idle", 24, 52);
 sprite_change_offset("wing_crouch", 24, 52);
+sprite_change_offset("wing_slide", 24, 52);
 sprite_change_offset("wing_walk", 24, 52);
 sprite_change_offset("wing_jump", 24, 52);
 sprite_change_offset("wing_glide", 24, 52);

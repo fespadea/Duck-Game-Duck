@@ -1,6 +1,7 @@
 //animation
-fallingSoDrawLeft = false;
 
+//duck animations
+fallingSoDrawLeft = false;
 if(duckState == DS_STAND){
     if(free){
         pHurtBox.sprite_index = hurtbox_spr;

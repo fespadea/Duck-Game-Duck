@@ -122,9 +122,6 @@ hurtSprite[0] = sprite_get("hurt");
 wingLeftJumpSprite = sprite_get("wing_left_jump");
 wingLeftGlideSprite = sprite_get("wing_left_glide");
 
-//wing article
-wingArticle = instance_create(x, y, "obj_article1");
-
 //duck animation variables
 duckSpriteIndex = idleSprite;
 duckImageIndex = 0;
@@ -140,10 +137,10 @@ standJumpHsp = max_jump_hsp;
 standLeaveGroundHsp = leave_ground_max;
 standAirHsp = air_max_speed;
 //DS_CROUCH
-slideGroundFriction = ground_friction/3;
-slideAirFriction = air_friction/3;
-slideJumpSpeed = jump_speed/2;
-slideHopSpeed = short_hop_speed/2;
+slideGroundFriction = ground_friction/5;
+slideAirFriction = air_friction/5;
+slideJumpSpeed = jump_speed/1.25;
+slideHopSpeed = short_hop_speed/1.25;
 slideMaxFall = max_fall;
 
 //previous speeds
@@ -161,3 +158,21 @@ quackTaunt = false;
 quackTimer = 0;
 //quack taunt sound
 quackTauntSound = sound_get("tauntQuack");
+
+
+//wing stuff
+//wing sprites
+wingIdleSprite = sprite_get("wing_idle");
+wingCrouchSprite = sprite_get("wing_crouch");
+wingSlideSprite = sprite_get("wing_slide");
+wingWalkSprite = sprite_get("wing_walk");
+wingJumpSprite = sprite_get("wing_jump");
+wingGlideSprite = sprite_get("wing_glide");
+// sprite variables
+wingSprite = wingIdleSprite;
+wingImage = 0;
+
+//wing states
+WS_UNARMED = 0;
+//wing state variable
+wingState = WS_UNARMED;

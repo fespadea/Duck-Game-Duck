@@ -33,9 +33,9 @@ if(duckState == DS_STAND){
     max_fall = slideMaxFall;
     if((hsp > 0 && hsp > prevHsp) || (hsp < 0 && hsp < prevHsp)) hsp = prevHsp;
     var absoluteHsp = abs(hsp); //avoiding negatives
-    max_jump_hsp = absoluteHsp*.8;
-    leave_ground_max = absoluteHsp*.8;
-    air_max_speed = absoluteHsp*.8;
+    max_jump_hsp = absoluteHsp*.9;
+    leave_ground_max = absoluteHsp*.9;
+    air_max_speed = absoluteHsp*.9;
 }
 prevHsp = hsp;
 prevVsp = vsp;

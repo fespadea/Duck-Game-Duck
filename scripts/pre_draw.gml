@@ -1,5 +1,10 @@
 // pre draw
 
+// draw the jetpack when being used
+if(jetpackActive){
+    
+}
+
 // draw the left arm when falling (floating or normal) since the sprite doesn't have the arm
 if(duckState == DS_STAND){
     if(fallingSoDrawLeft){

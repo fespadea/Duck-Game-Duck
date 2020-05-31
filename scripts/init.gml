@@ -125,30 +125,41 @@ wingLeftGlideSprite = sprite_get("wing_left_glide");
 //duck animation variables
 duckSpriteIndex = idleSprite;
 duckImageIndex = 0;
+duckOrientation = 90; // rotation in degrees
 
 //attribute variables
 //DS_STAND
 standGroundFriction = ground_friction;
 standAirFriction = air_friction;
 standMaxFall = max_fall;
-standJumpSpeed = jump_speed;
-standHopSpeed = short_hop_speed;
 standJumpHsp = max_jump_hsp;
 standLeaveGroundHsp = leave_ground_max;
 standAirHsp = air_max_speed;
 //DS_CROUCH
 slideGroundFriction = ground_friction/5;
 slideAirFriction = air_friction/5;
-slideJumpSpeed = jump_speed/1.25;
-slideHopSpeed = short_hop_speed/1.25;
 slideMaxFall = max_fall;
 
 //previous speeds
 prevVsp = vsp;
 prevHsp = hsp;
 
-//float variable
+//float variables
 floatActive = false;
+goingUp = true;
+inAirButNotJumping = false;
+//jetpack variables
+maxJetPackFuel = 80;
+jetpackFuel = maxJetPackFuel;
+maxJetpackSpeed = jump_speed;
+jetpackAccel = gravity_speed*1.5;
+jetpackActive = false;
+
+//equipment sprites
+jetpackSprite = sprite_get("equipment_jetpack");
+
+//slide variable
+slideActive = false;
 
 //variable to indicate that the left arm needs to be drawn for falling
 fallingSoDrawLeft = false;
@@ -158,9 +169,6 @@ quackTaunt = false;
 quackTimer = 0;
 //quack taunt sound
 quackTauntSound = sound_get("tauntQuack");
-
-//jetpack variables
-jetpackFuel = 80;
 
 //wing stuff
 //wing sprites

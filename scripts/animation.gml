@@ -4,7 +4,7 @@
 fallingSoDrawLeft = false;
 if(duckState == DS_STAND){
     if(free){
-        pHurtBox.sprite_index = hurtbox_spr;
+        hurtboxID.sprite_index = hurtbox_spr;
         changeSprite(jumpSprite);
         if(vsp < 0){
             duckImageIndex = 0;
@@ -13,8 +13,8 @@ if(duckState == DS_STAND){
             fallingSoDrawLeft = true;
         }
     } else {
-        pHurtBox.sprite_index = air_hurtbox_spr;
-        var absoluteHSP = abs(hsp)
+        hurtboxID.sprite_index = air_hurtbox_spr;
+        var absoluteHSP = abs(hsp);
         if(absoluteHSP > .3){
             changeSprite(walkSprite);
             duckImageIndex += absoluteHSP*(walk_anim_speed/walk_speed);
@@ -23,12 +23,11 @@ if(duckState == DS_STAND){
         }
     }
 } else if(duckState == DS_CROUCH){
-    pHurtBox.sprite_index = crouchbox_spr;
-    var absoluteHSP = abs(hsp)
-    if(absoluteHSP > .3 && !free){
+    hurtboxID.sprite_index = crouchbox_spr;
+    duckImageIndex = 0;
+    if(slideActive){
         changeSprite(slideSprite);
-        duckImageIndex = 0;
-    } else if (duckSpriteIndex != slideSprite) {
+    } else {
         changeSprite(crouchSprite);
     }
 }

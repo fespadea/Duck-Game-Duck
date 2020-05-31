@@ -8,22 +8,16 @@ if(down_hard_pressed || state == PS_CROUCH){
 }
 
 //attribute control
-
 floatActive = false;
 if(vsp == fast_fall && fast_falling){
     vsp = prevVsp;
     fast_falling = false;
 }
-if(!has_walljump){
-    has_walljump = storingWallJump;
-}
 if(duckState == DS_STAND){
     ground_friction = standGroundFriction;
     air_friction = standAirFriction;
-    max_jump_hsp = standJumpHsp;
-    leave_ground_max = standLeaveGroundHsp;
-    air_max_speed = standAirHsp;
     max_fall = standMaxFall;
+    air_accel = standAirAccel;
     if(left_down){
         spr_dir = -1;
     } else if(right_down){
@@ -38,23 +32,13 @@ if(duckState == DS_STAND){
     ground_friction = slideGroundFriction;
     air_friction = slideAirFriction;
     max_fall = slideMaxFall;
-    if(((hsp > 0 && hsp > prevHsp) || (hsp < 0 && hsp < prevHsp)) && !jetpackActive) hsp = prevHsp;
-    var absoluteHsp = abs(hsp); //avoiding negatives
-    max_jump_hsp = absoluteHsp;
-    leave_ground_max = absoluteHsp;
-    if(jetpackActive){
-        air_max_speed = standAirHsp;
-    } else {
-        air_max_speed = absoluteHsp;
-    }
+    air_accel = slideAirAccel;
     // decide if sliding
     var absoluteHSP = abs(hsp);
     if(absoluteHSP > .3 && !free){
         slideActive = true;
-        storingWallJump = has_walljump;
-        has_walljump = false;
         duckOrientation = 90 + 90*spr_dir;
-    } else if (duckSpriteIndex != slideSprite || (state == PS_JUMPSQUAT && hsp == 0)) {
+    } else if (duckSpriteIndex != slideSprite || (state == PS_JUMPSQUAT && hsp == 0 && !jetpackActive)) {
         slideActive = false;
         duckOrientation = 90;
     }
@@ -103,6 +87,15 @@ if(taunt_down){
     }
 }
 
+//walljumps
+if(slideActive){
+    storingWallJump = has_walljump;
+    has_walljump = false;
+} else if(storingWallJump){
+    has_walljump = true;
+    storingWallJump = false;
+}
+
 //jetpack
 var jetpackStartInput = jump_pressed || (up_hard_pressed && can_tap_jump());
 var jetpackInput = jump_down || (up_down && can_tap_jump());
@@ -116,6 +109,9 @@ if(!free && !(slideActive && jetpackActive)){
 } else {
     if(state == PS_JUMPSQUAT){
         set_state(PS_IDLE);
+    } else if(state == PS_WALL_JUMP && state_timer == 1){
+        inAirButNotJumping = false;
+        jetpackActive = false;
     }
     if(!jetpackInput){
         inAirButNotJumping = true;

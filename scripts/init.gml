@@ -132,13 +132,12 @@ duckOrientation = 90; // rotation in degrees
 standGroundFriction = ground_friction;
 standAirFriction = air_friction;
 standMaxFall = max_fall;
-standJumpHsp = max_jump_hsp;
-standLeaveGroundHsp = leave_ground_max;
-standAirHsp = air_max_speed;
+standAirAccel = air_accel;
 //DS_CROUCH
 slideGroundFriction = ground_friction/5;
 slideAirFriction = air_friction/2;
 slideMaxFall = max_fall;
+slideAirAccel = 0;
 
 //previous speeds
 prevVsp = vsp;

@@ -31,7 +31,7 @@ if(duckState == DS_STAND){
         changeSprite(crouchSprite);
     }
 }
-sprite_index = duckSpriteIndex[taunt_down ? 1 : 0];
+sprite_index = duckSpriteIndex[quackTaunt ? 1 : 0];
 image_index = floor(duckImageIndex);
 
 #define changeSprite(newSprite)

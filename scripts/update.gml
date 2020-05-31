@@ -63,3 +63,18 @@ if floatActive {
         vsp = max_fall;
     }
 }
+
+// taunt control
+move_cooldown[AT_TAUNT] = 2;
+if(taunt_down){
+    if(!quackTaunt){
+        sound_play(quackTauntSound);
+    }
+    quackTaunt = true;
+    quackTimer = 3;
+} else if(quackTaunt){
+    quackTimer--;
+    if(!quackTimer){
+        quackTaunt = false;
+    }
+}

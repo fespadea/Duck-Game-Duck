@@ -118,12 +118,6 @@ slideSprite[0] = sprite_get("slide");
 hurtSprite[1] = sprite_get("hurt_quack");
 hurtSprite[0] = sprite_get("hurt");
 
-//wing sprites
-wingIdleSprite = sprite_get("wing_idle");
-wingCrouchSprite = sprite_get("wing_crouch");
-wingWalkSprite = sprite_get("wing_walk");
-windJumpSprite = sprite_get("wing_jump");
-wingGlideSprite = sprite_get("wing_glide");
 //left wing sprites
 wingLeftJumpSprite = sprite_get("wing_left_jump");
 wingLeftGlideSprite = sprite_get("wing_left_glide");
@@ -161,3 +155,9 @@ floatActive = false;
 
 //variable to indicate that the left arm needs to be drawn for falling
 fallingSoDrawLeft = false;
+
+//quack variables
+quackTaunt = false;
+quackTimer = 0;
+//quack taunt sound
+quackTauntSound = sound_get("tauntQuack");

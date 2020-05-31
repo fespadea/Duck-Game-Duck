@@ -154,10 +154,14 @@ jetpackFuel = maxJetPackFuel;
 maxJetpackSpeed = jump_speed;
 jetpackAccel = gravity_speed*1.5;
 jetpackActive = false;
+jetpackSpriteFrameSpeed = 8/(maxJetPackFuel+1);
+//walljump variables
+storingWallJump = false;
 
 //equipment sprites
 jetpackSprite = sprite_get("equipment_jetpack");
-jetpackSpriteFrameSpeed = 8/(maxJetPackFuel+1);
+wallJumpBootsStandSprite = sprite_get("equipment_walljump_boots_stand");
+wallJumpBootsCrouchSprite = sprite_get("equipment_walljump_boots_crouch");
 
 //slide variable
 slideActive = false;

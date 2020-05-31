@@ -29,3 +29,5 @@ sprite_change_offset("wing_left_glide", 24, 52);
 sprite_change_offset("plat", 64, 94);
 
 sprite_change_offset("equipment_jetpack", 15, 15);
+sprite_change_offset("equipment_walljump_boots_stand", 24, 52);
+sprite_change_offset("equipment_walljump_boots_crouch", 24, 52);

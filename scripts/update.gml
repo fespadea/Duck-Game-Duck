@@ -14,6 +14,9 @@ if(vsp == fast_fall && fast_falling){
     vsp = prevVsp;
     fast_falling = false;
 }
+if(!has_walljump){
+    has_walljump = storingWallJump;
+}
 if(duckState == DS_STAND){
     ground_friction = standGroundFriction;
     air_friction = standAirFriction;
@@ -35,19 +38,21 @@ if(duckState == DS_STAND){
     ground_friction = slideGroundFriction;
     air_friction = slideAirFriction;
     max_fall = slideMaxFall;
-    if((hsp > 0 && hsp > prevHsp) || (hsp < 0 && hsp < prevHsp)) hsp = prevHsp;
+    if(((hsp > 0 && hsp > prevHsp) || (hsp < 0 && hsp < prevHsp)) && !jetpackActive) hsp = prevHsp;
     var absoluteHsp = abs(hsp); //avoiding negatives
     max_jump_hsp = absoluteHsp;
     leave_ground_max = absoluteHsp;
-    if(!jetpackActive){
-        air_max_speed = absoluteHsp;
+    if(jetpackActive){
+        air_max_speed = standAirHsp;
     } else {
-        air_max_speed = maxJetpackSpeed;
+        air_max_speed = absoluteHsp;
     }
     // decide if sliding
     var absoluteHSP = abs(hsp);
     if(absoluteHSP > .3 && !free){
         slideActive = true;
+        storingWallJump = has_walljump;
+        has_walljump = false;
         duckOrientation = 90 + 90*spr_dir;
     } else if (duckSpriteIndex != slideSprite || (state == PS_JUMPSQUAT && hsp == 0)) {
         slideActive = false;
@@ -104,11 +109,14 @@ var jetpackInput = jump_down || (up_down && can_tap_jump());
 if(state == PS_WALL_JUMP && state_timer == 1){
     inAirButNotJumping = false;
 }
-if(!free){
+if(!free && !(slideActive && jetpackActive)){
     jetpackFuel = maxJetPackFuel;
     inAirButNotJumping = false;
     jetpackActive = false;
 } else {
+    if(state == PS_JUMPSQUAT){
+        set_state(PS_IDLE);
+    }
     if(!jetpackInput){
         inAirButNotJumping = true;
     }
@@ -121,11 +129,15 @@ if(!free){
         var maxHsp = maxJetpackSpeed*horPor;
         var verPor = sin(degtorad(duckOrientation));
         var maxVsp = -maxJetpackSpeed*verPor;
-        if(abs(maxHsp) > hsp){
+        if(maxHsp > 0 && maxHsp > hsp){
             hsp += min(maxHsp - hsp, jetpackAccel*horPor);
+        } else if (maxHsp < 0 && maxHsp < hsp){
+            hsp += max(maxHsp - hsp, jetpackAccel*horPor);
         }
-        if(maxVsp < vsp){
-            vsp -= min(abs(maxVsp - vsp), jetpackAccel*verPor);
+        if(maxVsp < 0 && maxVsp < vsp){
+            vsp += max(maxVsp - vsp, -jetpackAccel*verPor);
+        } else if(maxVsp > 0 && maxVsp > vsp){
+            vsp += min(maxVsp - vsp, -jetpackAccel*verPor);
         }
     }
 }

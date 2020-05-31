@@ -22,6 +22,11 @@ if(duckState == DS_STAND){
     leave_ground_max = standLeaveGroundHsp;
     air_max_speed = standAirHsp;
     max_fall = standMaxFall;
+    if(left_down){
+        spr_dir = -1;
+    } else if(right_down){
+        spr_dir = 1;
+    }
 } else if(duckState == DS_CROUCH){
     if(state == PS_DASH_START){
         set_state(PS_IDLE);

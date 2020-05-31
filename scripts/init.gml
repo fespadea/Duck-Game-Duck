@@ -159,6 +159,8 @@ quackTimer = 0;
 //quack taunt sound
 quackTauntSound = sound_get("tauntQuack");
 
+//jetpack variables
+jetpackFuel = 80;
 
 //wing stuff
 //wing sprites

@@ -137,7 +137,7 @@ standLeaveGroundHsp = leave_ground_max;
 standAirHsp = air_max_speed;
 //DS_CROUCH
 slideGroundFriction = ground_friction/5;
-slideAirFriction = air_friction/5;
+slideAirFriction = air_friction/2;
 slideMaxFall = max_fall;
 
 //previous speeds
@@ -157,6 +157,7 @@ jetpackActive = false;
 
 //equipment sprites
 jetpackSprite = sprite_get("equipment_jetpack");
+jetpackSpriteFrameSpeed = 8/(maxJetPackFuel+1);
 
 //slide variable
 slideActive = false;

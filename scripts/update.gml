@@ -12,6 +12,7 @@ if(down_hard_pressed || state == PS_CROUCH){
 floatActive = false;
 if(vsp == fast_fall && fast_falling){
     vsp = prevVsp;
+    fast_falling = false;
 }
 if(duckState == DS_STAND){
     ground_friction = standGroundFriction;
@@ -36,14 +37,18 @@ if(duckState == DS_STAND){
     max_fall = slideMaxFall;
     if((hsp > 0 && hsp > prevHsp) || (hsp < 0 && hsp < prevHsp)) hsp = prevHsp;
     var absoluteHsp = abs(hsp); //avoiding negatives
-    max_jump_hsp = absoluteHsp*.9;
-    leave_ground_max = absoluteHsp*.9;
-    air_max_speed = absoluteHsp*.9;
+    max_jump_hsp = absoluteHsp;
+    leave_ground_max = absoluteHsp;
+    if(!jetpackActive){
+        air_max_speed = absoluteHsp;
+    } else {
+        air_max_speed = maxJetpackSpeed;
+    }
     // decide if sliding
     var absoluteHSP = abs(hsp);
     if(absoluteHSP > .3 && !free){
         slideActive = true;
-        duckOrientation = 0;
+        duckOrientation = 90 + 90*spr_dir;
     } else if (duckSpriteIndex != slideSprite || (state == PS_JUMPSQUAT && hsp == 0)) {
         slideActive = false;
         duckOrientation = 90;
@@ -116,7 +121,7 @@ if(!free){
         var maxHsp = maxJetpackSpeed*horPor;
         var verPor = sin(degtorad(duckOrientation));
         var maxVsp = -maxJetpackSpeed*verPor;
-        if(maxHsp > hsp){
+        if(abs(maxHsp) > hsp){
             hsp += min(maxHsp - hsp, jetpackAccel*horPor);
         }
         if(maxVsp < vsp){

@@ -88,8 +88,8 @@ if(taunt_down){
 }
 
 //walljumps
-if(slideActive){
-    storingWallJump = has_walljump;
+if(slideActive && has_walljump){
+    storingWallJump = true;
     has_walljump = false;
 } else if(storingWallJump){
     has_walljump = true;
@@ -106,6 +106,10 @@ if(!free && !(slideActive && jetpackActive)){
     jetpackFuel = maxJetPackFuel;
     inAirButNotJumping = false;
     jetpackActive = false;
+    if(jetpackSfxIndexToStop){
+        sound_stop(jetpackSfxIndexToStop);
+        jetpackSfxIndexToStop = 0;
+    }
 } else {
     if(state == PS_JUMPSQUAT){
         set_state(PS_IDLE);
@@ -120,7 +124,13 @@ if(!free && !(slideActive && jetpackActive)){
         jetpackActive = true;
     }
     if(jetpackActive && jetpackFuel && jetpackInput){
+        if(!jetpackSfxIndexToStop){
+            jetpackSfxIndexToStop = sound_play(jetpackSfx);
+        }
         jetpackFuel--;
+        if(!(jetpackFuel % 3)){
+            spawn_hit_fx(x+random_func(0, 21, true)-10, y+random_func(1, 21, true)-10, jetpackSmokeEffect);
+        }
         var horPor = cos(degtorad(duckOrientation));
         var maxHsp = maxJetpackSpeed*horPor;
         var verPor = sin(degtorad(duckOrientation));
@@ -134,6 +144,11 @@ if(!free && !(slideActive && jetpackActive)){
             vsp += max(maxVsp - vsp, -jetpackAccel*verPor);
         } else if(maxVsp > 0 && maxVsp > vsp){
             vsp += min(maxVsp - vsp, -jetpackAccel*verPor);
+        }
+    } else {
+        if(jetpackSfxIndexToStop){
+            sound_stop(jetpackSfxIndexToStop);
+            jetpackSfxIndexToStop = 0;
         }
     }
 }

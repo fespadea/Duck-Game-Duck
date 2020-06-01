@@ -16,6 +16,7 @@ sprite_change_offset("hurtbox", 24, 52);
 sprite_change_offset("crouchbox", 24, 52);
 sprite_change_offset("airbox", 24, 52);
 
+//right wing
 sprite_change_offset("wing_idle", 24, 52);
 sprite_change_offset("wing_crouch", 24, 52);
 sprite_change_offset("wing_slide", 24, 52);
@@ -23,11 +24,16 @@ sprite_change_offset("wing_walk", 24, 52);
 sprite_change_offset("wing_jump", 24, 52);
 sprite_change_offset("wing_glide", 24, 52);
 
+//left wing
 sprite_change_offset("wing_left_jump", 24, 52);
 sprite_change_offset("wing_left_glide", 24, 52);
 
 sprite_change_offset("plat", 64, 94);
 
+//equipment
 sprite_change_offset("equipment_jetpack", 15, 15);
 sprite_change_offset("equipment_walljump_boots_stand", 24, 52);
 sprite_change_offset("equipment_walljump_boots_crouch", 24, 52);
+
+//vfx
+sprite_change_offset("equipment_jetpack_smoke", 16, 18);

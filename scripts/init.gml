@@ -46,7 +46,7 @@ hitstun_grav = .5;
 knockback_adj = 1.2; //the multiplier to KB dealt to you. 1 = default, >1 = lighter, <1 = heavier
 
 land_time = 4; //normal landing frames
-prat_land_time = 3;
+prat_land_time = 10;
 wave_land_time = 8;
 wave_land_adj = 1.35; //the multiplier to your initial hsp when wavelanding. Usually greater than 1
 wave_friction = .12; //grounded deceleration when wavelanding
@@ -148,12 +148,13 @@ floatActive = false;
 goingUp = true;
 inAirButNotJumping = false;
 //jetpack variables
-maxJetPackFuel = 80;
+maxJetPackFuel = 20;
 jetpackFuel = maxJetPackFuel;
 maxJetpackSpeed = jump_speed;
 jetpackAccel = gravity_speed*1.5;
 jetpackActive = false;
 jetpackSpriteFrameSpeed = 8/(maxJetPackFuel+1);
+jetpackSfxIndexToStop = 0;
 //walljump variables
 storingWallJump = false;
 
@@ -190,3 +191,9 @@ wingImage = 0;
 WS_UNARMED = 0;
 //wing state variable
 wingState = WS_UNARMED;
+
+//effect sprites
+jetpackSmokeEffect = hit_fx_create(sprite_get("equipment_jetpack_smoke"), 16);
+
+//sfx variables
+jetpackSfx = asset_get("sfx_ell_hover");

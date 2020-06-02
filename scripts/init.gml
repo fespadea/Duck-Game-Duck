@@ -1,7 +1,7 @@
 hurtbox_spr = sprite_get("hurtbox");
 crouchbox_spr = sprite_get("crouchbox");
 air_hurtbox_spr = sprite_get("airbox");
-hitstun_hurtbox_spr = -1;
+hitstun_hurtbox_spr = sprite_get("hurt_hurtbox");
 
 char_height = 32;
 idle_anim_speed = 0;
@@ -101,8 +101,10 @@ bubble_y = 8;
 // duck states
 DS_STAND = 0;
 DS_CROUCH = 1;
+DS_HURT = 2;
 // duck uses custom states
 duckState = DS_STAND;
+duckStateTimer = 0;
 
 //duck sprites
 idleSprite[1] = sprite_get("idle_quack");
@@ -117,6 +119,7 @@ slideSprite[1] = sprite_get("slide_quack");
 slideSprite[0] = sprite_get("slide");
 hurtSprite[1] = sprite_get("hurt_quack");
 hurtSprite[0] = sprite_get("hurt");
+hurt2Sprite = sprite_get("hurt2");
 
 //left wing sprites
 wingLeftJumpSprite = sprite_get("wing_left_jump");
@@ -126,6 +129,7 @@ wingLeftGlideSprite = sprite_get("wing_left_glide");
 duckSpriteIndex = idleSprite;
 duckImageIndex = 0;
 duckOrientation = 90; // rotation in degrees
+duckBottomOrientation = 90; // rotation of bottom torso during hurt in degrees
 
 //attribute variables
 //DS_STAND
@@ -148,9 +152,9 @@ floatActive = false;
 goingUp = true;
 inAirButNotJumping = false;
 //jetpack variables
-maxJetPackFuel = 20;
+maxJetPackFuel = 40;
 jetpackFuel = maxJetPackFuel;
-maxJetpackSpeed = jump_speed;
+maxJetpackSpeed = jump_speed/2;
 jetpackAccel = gravity_speed*1.5;
 jetpackActive = false;
 jetpackSpriteFrameSpeed = 8/(maxJetPackFuel+1);

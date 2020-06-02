@@ -2,9 +2,11 @@
 
 //duckState control
 if(down_hard_pressed || state == PS_CROUCH){
-    duckState = DS_CROUCH;
+    changeDuckState(DS_CROUCH);
+} else if(state_cat == SC_HITSTUN || state == PS_TUMBLE){
+    changeDuckState(DS_HURT);
 } else if(!down_down){
-    duckState = DS_STAND;
+    changeDuckState(DS_STAND);
 }
 
 //attribute control
@@ -14,35 +16,49 @@ if(vsp == fast_fall && fast_falling){
     fast_falling = false;
 }
 if(duckState == DS_STAND){
-    ground_friction = standGroundFriction;
-    air_friction = standAirFriction;
+    if(!duckStateTimer){
+        ground_friction = standGroundFriction;
+        air_friction = standAirFriction;
+        air_accel = standAirAccel;
+        slideActive = false;
+        duckOrientation = 90;
+    }
     max_fall = standMaxFall;
-    air_accel = standAirAccel;
     if(left_down){
         spr_dir = -1;
     } else if(right_down){
         spr_dir = 1;
     }
-    slideActive = false;
-    duckOrientation = 90;
 } else if(duckState == DS_CROUCH){
     if(state == PS_DASH_START){
         set_state(PS_IDLE);
     }
-    ground_friction = slideGroundFriction;
-    air_friction = slideAirFriction;
-    max_fall = slideMaxFall;
-    air_accel = slideAirAccel;
+    if(!duckStateTimer){
+        ground_friction = slideGroundFriction;
+        air_friction = slideAirFriction;
+        max_fall = slideMaxFall;
+        air_accel = slideAirAccel;
+    }
     // decide if sliding
-    var absoluteHSP = abs(hsp);
-    if(absoluteHSP > .3 && !free){
+    if(abs(hsp) > .3 && !free){
         slideActive = true;
         duckOrientation = 90 + 90*spr_dir;
     } else if (duckSpriteIndex != slideSprite || (state == PS_JUMPSQUAT && hsp == 0 && !jetpackActive)) {
         slideActive = false;
         duckOrientation = 90;
     }
+} else if(duckState == DS_HURT){
+    if(!duckStateTimer){
+        ground_friction = standGroundFriction;
+        air_friction = standAirFriction;
+        max_fall = standMaxFall;
+        air_accel = standAirAccel;
+        slideActive = false;
+        duckOrientation = 90;
+        duckBottomOrientation = 90;
+    }
 }
+duckStateTimer++;
 prevHsp = hsp;
 prevVsp = vsp;
 
@@ -124,6 +140,9 @@ if(!free && !(slideActive && jetpackActive)){
         jetpackActive = true;
     }
     if(jetpackActive && jetpackFuel && jetpackInput){
+        if(vsp > 0){ // you went no where if you use the jetpack while falling
+            vsp *= .75;
+        }
         if(!jetpackSfxIndexToStop){
             jetpackSfxIndexToStop = sound_play(jetpackSfx);
         }
@@ -151,4 +170,10 @@ if(!free && !(slideActive && jetpackActive)){
             jetpackSfxIndexToStop = 0;
         }
     }
+}
+
+#define changeDuckState(newDuckState)
+if(duckState != newDuckState){
+    duckState = newDuckState;
+    duckStateTimer = 0;
 }

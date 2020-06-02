@@ -15,6 +15,7 @@ sprite_change_offset("jump_quack", 24, 52);
 sprite_change_offset("hurtbox", 24, 52);
 sprite_change_offset("crouchbox", 24, 52);
 sprite_change_offset("airbox", 24, 52);
+sprite_change_offset("hurt_hurtbox", 24, 52);
 
 //right wing
 sprite_change_offset("wing_idle", 24, 52);

@@ -12,7 +12,7 @@ if(state == PS_WALL_JUMP){
 }
 
 // wing animations
-if(wingState == WS_UNARMED){
+if(wingState == WS_UNARMED && duckState != DS_HURT){
     wingImage = image_index;
     if(duckSpriteIndex == idleSprite){
         wingSprite = wingIdleSprite;

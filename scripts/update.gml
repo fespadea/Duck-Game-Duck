@@ -55,7 +55,28 @@ if(duckState == DS_STAND){
         air_accel = standAirAccel;
         slideActive = false;
         duckOrientation = 90;
-        duckBottomOrientation = 90;
+        duckBottomOrientation = -duckOrientation;
+        if(duckSpriteIndex == slideSprite){
+            y -= 25;
+        } else if(duckSpriteIndex != slideSprite){
+            y -= 18;
+        }
+    } else {
+        if(free){
+            if(hsp == 0){
+                if(vsp > 0)
+                    launchAngle = 270;
+                else if(vsp < 0)
+                    launchAngle = 90;
+            } else
+                launchAngle = radtodeg(arctan(-vsp/hsp));
+            print_debug(string(launchAngle))
+            if(launchAngle < 0)
+                launchAngle += 360;
+            var angleOffset = maximumBendAngle - 45/exp(maximumBendAngle);
+            duckOrientation = launchAngle + (-angleOffset-90)*spr_dir;
+            duckBottomOrientation = launchAngle - (-angleOffset-90)*spr_dir;
+        }
     }
 }
 duckStateTimer++;

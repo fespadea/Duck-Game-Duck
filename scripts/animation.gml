@@ -34,16 +34,11 @@ if(duckState == DS_STAND){
         changeSprite(crouchSprite);
     }
 } else if(duckState == DS_HURT){
-    hurtboxID.sprite_index = hitstun_hurtbox_spr;
-    hurtboxID.image_angle = duckOrientation-90;
     duckImageIndex = 0;
-    if(duckSpriteIndex == slideSprite){
-        y -= 7;
-    }
     changeSprite(hurtSprite);
-    spr_angle = duckOrientation-90;
-    var verticalOffsetFromIdle = 18;
-    draw_y = -verticalOffsetFromIdle*sin(duckOrientation);
+    spr_angle = round(duckOrientation)-90;
+    hurtboxID.sprite_index = hitstun_hurtbox_spr;
+    hurtboxID.image_angle = spr_angle;
 }
 sprite_index = duckSpriteIndex[quackTaunt ? 1 : 0];
 image_index = floor(duckImageIndex);

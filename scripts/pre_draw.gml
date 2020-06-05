@@ -36,5 +36,5 @@ if(duckState == DS_STAND){
 
 // draw the bottom half of the duck's body when hit
 if(duckState == DS_HURT){
-    draw_sprite_ext(hurt2Sprite, 0, x+draw_x, y+draw_y, spr_dir, 1, duckBottomOrientation-90, c_white, 1);
+    draw_sprite_ext(hurt2Sprite, 0, x, y, spr_dir, 1, duckBottomOrientation+90, c_white, 1);
 }

@@ -129,7 +129,11 @@ wingLeftGlideSprite = sprite_get("wing_left_glide");
 duckSpriteIndex = idleSprite;
 duckImageIndex = 0;
 duckOrientation = 90; // rotation in degrees
+
+//hurt variables
 duckBottomOrientation = 90; // rotation of bottom torso during hurt in degrees
+maximumBendAngle = 30
+launchAngle = 0;
 
 //attribute variables
 //DS_STAND

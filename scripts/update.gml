@@ -196,6 +196,7 @@ if(!free && !(slideActive && jetpackActive)){
     }
 }
 
+
 #define changeDuckState(newDuckState)
 if(duckState != newDuckState){
     duckState = newDuckState;

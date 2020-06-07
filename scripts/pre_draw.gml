@@ -17,7 +17,7 @@ repeat 1{ // this is here so that I can use a break statement
         } else {
             break;
         }
-        draw_sprite_ext(jetpackSprite, floor((maxJetPackFuel-jetpackFuel)*jetpackSpriteFrameSpeed), x+xOffset*spr_dir, y+yOffset, spr_dir, 1, duckOrientation - 90, c_white, 1);
+        draw_sprite_ext(jetpackSprite, floor((maxJetPackFuel-jetpackFuel)*jetpackSpriteFrameSpeed), x+xOffset*spr_dir, y+yOffset, spr_dir, 1, duckOrientation - 90, duckColor, 1);
         break;
     }
 }

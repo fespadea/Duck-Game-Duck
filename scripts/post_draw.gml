@@ -8,7 +8,7 @@ if(state == PS_WALL_JUMP){
     } else if(duckState == DS_CROUCH){
         bootSprite = wallJumpBootsCrouchSprite;
     }
-    draw_sprite_ext(bootSprite, image_index, x, y, spr_dir, 1, 0, c_white, 1);
+    draw_sprite_ext(bootSprite, image_index, x, y, spr_dir, 1, 0, duckColor, 1);
 }
 
 // wing animations

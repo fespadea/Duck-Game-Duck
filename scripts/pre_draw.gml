@@ -24,6 +24,7 @@ repeat 1{ // this is here so that I can use a break statement
 
 
 // draw the left arm when falling (floating or normal) since the sprite doesn't have the arm
+shader_start();
 if(duckState == DS_STAND){
     if(fallingSoDrawLeft){
         if(floatActive){
@@ -38,3 +39,4 @@ if(duckState == DS_STAND){
 if(duckState == DS_HURT){
     draw_sprite_ext(hurt2Sprite, 0, x, y, spr_dir, 1, duckBottomOrientation+90, duckColor, 1);
 }
+shader_end();

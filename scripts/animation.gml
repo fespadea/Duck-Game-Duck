@@ -43,6 +43,14 @@ if(duckState == DS_STAND){
 sprite_index = duckSpriteIndex[quackTaunt ? 1 : 0];
 image_index = floor(duckImageIndex);
 
+if(state == PS_PRATFALL || state == PS_PRATLAND){
+    duckColor = c_gray;
+} else if(state == PS_PARRY && window == 1){
+    duckColor = c_ltgray;
+} else {
+    duckColor = c_white;
+}
+
 #define changeSprite(newSprite)
 if(duckSpriteIndex != newSprite){
     duckSpriteIndex = newSprite;

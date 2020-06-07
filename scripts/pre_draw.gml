@@ -27,14 +27,14 @@ repeat 1{ // this is here so that I can use a break statement
 if(duckState == DS_STAND){
     if(fallingSoDrawLeft){
         if(floatActive){
-            draw_sprite_ext(wingLeftGlideSprite, floor(get_gameplay_time()/3), x, y, spr_dir, 1, 0, c_white, 1);
+            draw_sprite_ext(wingLeftGlideSprite, floor(get_gameplay_time()/3), x, y, spr_dir, 1, 0, duckColor, 1);
         } else {
-            draw_sprite_ext(wingLeftJumpSprite, image_index, x, y, spr_dir, 1, 0, c_white, 1);
+            draw_sprite_ext(wingLeftJumpSprite, image_index, x, y, spr_dir, 1, 0, duckColor, 1);
         }
     }
 }
 
 // draw the bottom half of the duck's body when hit
 if(duckState == DS_HURT){
-    draw_sprite_ext(hurt2Sprite, 0, x, y, spr_dir, 1, duckBottomOrientation+90, c_white, 1);
+    draw_sprite_ext(hurt2Sprite, 0, x, y, spr_dir, 1, duckBottomOrientation+90, duckColor, 1);
 }

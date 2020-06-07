@@ -177,6 +177,9 @@ slideActive = false;
 //variable to indicate that the left arm needs to be drawn for falling
 fallingSoDrawLeft = false;
 
+//the duck's current color
+duckColor = c_white;
+
 //quack variables
 quackTaunt = false;
 quackTimer = 0;

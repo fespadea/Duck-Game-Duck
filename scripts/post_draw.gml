@@ -30,5 +30,5 @@ if(wingState == WS_UNARMED && duckState != DS_HURT){
             wingSprite = wingJumpSprite;
         }
     }
-    draw_sprite_ext(wingSprite, wingImage, x, y, spr_dir, 1, 0, c_white, 1);
+    draw_sprite_ext(wingSprite, wingImage, x, y, spr_dir, 1, 0, duckColor, 1);
 }

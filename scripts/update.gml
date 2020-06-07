@@ -163,7 +163,7 @@ if(!free && !(slideActive && jetpackActive)){
     if(jetpackStartInput && inAirButNotJumping){
         jetpackActive = true;
     }
-    if(jetpackActive && jetpackFuel && jetpackInput && state != PS_PRATFALL && state != PS_ATTACK_AIR){
+    if(jetpackActive && jetpackFuel && jetpackInput && state != PS_PRATFALL && state != PS_ATTACK_AIR && state_cat != SC_HITSTUN){
         if(!jetpackSfxIndexToStop){
             jetpackSfxIndexToStop = sound_play(jetpackSfx);
         }
@@ -178,9 +178,6 @@ if(!free && !(slideActive && jetpackActive)){
         if(vsp > 0){ // you went no where if you use the jetpack while falling
             verPor *= 1.5;
         }
-        print_debug("verPor: " + string(verPor));
-        print_debug("duckOrientation: " + string(duckOrientation));
-        print_debug("horPor: " + string(horPor));
         if(maxHsp > 0 && maxHsp > hsp){
             hsp += min(maxHsp - hsp, jetpackAccel*horPor);
         } else if (maxHsp < 0 && maxHsp < hsp){

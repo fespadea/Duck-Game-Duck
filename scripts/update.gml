@@ -163,7 +163,7 @@ if(!free && !(slideActive && jetpackActive)){
     if(jetpackStartInput && inAirButNotJumping){
         jetpackActive = true;
     }
-    if(jetpackActive && jetpackFuel && jetpackInput && state != PS_PRATFALL && state != PS_ATTACK_AIR && state_cat != SC_HITSTUN){
+    if(jetpackActive && jetpackFuel && jetpackInput && state != PS_AIR_DODGE && state != PS_PRATFALL && state_cat != SC_HITSTUN){
         if(!jetpackSfxIndexToStop){
             jetpackSfxIndexToStop = sound_play(jetpackSfx);
         }

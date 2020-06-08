@@ -194,6 +194,7 @@ wingSlideSprite = sprite_get("wing_slide");
 wingWalkSprite = sprite_get("wing_walk");
 wingJumpSprite = sprite_get("wing_jump");
 wingGlideSprite = sprite_get("wing_glide");
+wingEmpty = asset_get("empty_sprite");
 // sprite variables
 wingSprite = wingIdleSprite;
 wingImage = 0;

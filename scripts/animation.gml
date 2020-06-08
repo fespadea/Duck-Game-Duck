@@ -51,6 +51,28 @@ if(state == PS_PRATFALL || state == PS_PRATLAND){
     duckColor = c_white;
 }
 
+// wing animations
+wingSprite = wingEmpty;
+if(wingState == WS_UNARMED && duckState != DS_HURT){
+    wingImage = image_index;
+    if(duckSpriteIndex == idleSprite){
+        wingSprite = wingIdleSprite;
+    } else if(duckSpriteIndex == crouchSprite){
+        wingSprite = wingCrouchSprite;
+    } else if(duckSpriteIndex == slideSprite){
+        wingSprite = wingSlideSprite;
+    } else if(duckSpriteIndex == walkSprite){
+        wingSprite = wingWalkSprite;
+    } else if(duckSpriteIndex == jumpSprite){
+        if(floatActive){
+            wingSprite = wingGlideSprite;
+            wingImage = floor(get_gameplay_time()/3);
+        } else {
+            wingSprite = wingJumpSprite;
+        }
+    }
+}
+
 #define changeSprite(newSprite)
 if(duckSpriteIndex != newSprite){
     duckSpriteIndex = newSprite;

@@ -24,10 +24,12 @@ if(duckState == DS_STAND){
         duckOrientation = 90;
     }
     max_fall = standMaxFall;
-    if(left_down){
-        spr_dir = -1;
-    } else if(right_down){
-        spr_dir = 1;
+    if(state != PS_ROLL_BACKWARD && state != PS_ROLL_FORWARD){
+        if(left_down){
+            spr_dir = -1;
+        } else if(right_down){
+            spr_dir = 1;
+        }
     }
 } else if(duckState == DS_CROUCH){
     if(state == PS_DASH_START){

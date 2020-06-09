@@ -165,11 +165,15 @@ jetpackSpriteFrameSpeed = 8/(maxJetPackFuel+1);
 jetpackSfxIndexToStop = 0;
 //walljump variables
 storingWallJump = false;
+//parry/armor variables
+showArmor = false;
 
 //equipment sprites
 jetpackSprite = sprite_get("equipment_jetpack");
 wallJumpBootsStandSprite = sprite_get("equipment_walljump_boots_stand");
 wallJumpBootsCrouchSprite = sprite_get("equipment_walljump_boots_crouch");
+helmetSprite = sprite_get("equipment_helmet");
+ChestplateSprite = sprite_get("equipment_chestplate");
 
 //slide variable
 slideActive = false;

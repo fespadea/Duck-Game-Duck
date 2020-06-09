@@ -17,7 +17,7 @@ if(duckState == DS_STAND){
         hurtboxID.sprite_index = air_hurtbox_spr;
         hurtboxID.image_angle = 0;
         var absoluteHSP = abs(hsp);
-        if(absoluteHSP > .3){
+        if(absoluteHSP > .3 && state != PS_PARRY){
             changeSprite(walkSprite);
             duckImageIndex += absoluteHSP*(walk_anim_speed/walk_speed);
         } else {
@@ -40,7 +40,7 @@ if(duckState == DS_STAND){
     hurtboxID.sprite_index = hitstun_hurtbox_spr;
     hurtboxID.image_angle = spr_angle;
 }
-sprite_index = duckSpriteIndex[quackTaunt ? 1 : 0];
+sprite_index = duckSpriteIndex[(quackTaunt && !showArmor) ? 1 : 0];
 image_index = floor(duckImageIndex);
 
 if(state == PS_PRATFALL || state == PS_PRATLAND){

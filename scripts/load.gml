@@ -35,6 +35,8 @@ sprite_change_offset("plat", 64, 94);
 sprite_change_offset("equipment_jetpack", 15, 15);
 sprite_change_offset("equipment_walljump_boots_stand", 24, 52);
 sprite_change_offset("equipment_walljump_boots_crouch", 24, 52);
+sprite_change_offset("equipment_helmet", 14, 15);
+sprite_change_offset("equipment_chestplate", 12, 11);
 
 //vfx
 sprite_change_offset("equipment_jetpack_smoke", 16, 18);

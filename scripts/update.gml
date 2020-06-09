@@ -129,6 +129,9 @@ if(taunt_down){
     }
 }
 
+// parry code
+showArmor = state == PS_PARRY && window == 1;
+
 //walljumps
 if(slideActive && has_walljump){
     storingWallJump = true;

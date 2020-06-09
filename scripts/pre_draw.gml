@@ -3,13 +3,11 @@
 //draw the parry outline
 #macro XOFFSET 4
 #macro YOFFSET 4
-if(state == PS_PARRY && window == 1){
-    shader_start();
+if(showArmor){
     draw_sprite_ext(wingSprite, wingImage, x+XOFFSET, y, spr_dir, 1, 0, c_black, 1);
     draw_sprite_ext(wingSprite, wingImage, x-XOFFSET, y, spr_dir, 1, 0, c_black, 1);
     draw_sprite_ext(wingSprite, wingImage, x, y+YOFFSET, spr_dir, 1, 0, c_black, 1);
     draw_sprite_ext(wingSprite, wingImage, x, y-YOFFSET, spr_dir, 1, 0, c_black, 1);
-    shader_end();
 }
 
 // draw the jetpack when being used

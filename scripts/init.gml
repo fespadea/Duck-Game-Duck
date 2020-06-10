@@ -167,13 +167,17 @@ jetpackSfxIndexToStop = 0;
 storingWallJump = false;
 //parry/armor variables
 showArmor = false;
+xOffsetChestplate = 0;
+yOffsetChestplate = 0;
+xOffsetHelmet = 0;
+yOffsetHelmet = 0;
 
 //equipment sprites
 jetpackSprite = sprite_get("equipment_jetpack");
 wallJumpBootsStandSprite = sprite_get("equipment_walljump_boots_stand");
 wallJumpBootsCrouchSprite = sprite_get("equipment_walljump_boots_crouch");
 helmetSprite = sprite_get("equipment_helmet");
-ChestplateSprite = sprite_get("equipment_chestplate");
+chestplateSprite = sprite_get("equipment_chestplate");
 
 //slide variable
 slideActive = false;

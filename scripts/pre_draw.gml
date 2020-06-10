@@ -8,6 +8,14 @@ if(showArmor){
     draw_sprite_ext(wingSprite, wingImage, x-XOFFSET, y, spr_dir, 1, 0, c_black, 1);
     draw_sprite_ext(wingSprite, wingImage, x, y+YOFFSET, spr_dir, 1, 0, c_black, 1);
     draw_sprite_ext(wingSprite, wingImage, x, y-YOFFSET, spr_dir, 1, 0, c_black, 1);
+    draw_sprite_ext(chestplateSprite, quackTaunt ? 1 : 0, x+xOffsetChestplate*spr_dir+XOFFSET, y+yOffsetChestplate, spr_dir, 1, duckOrientation - 90, c_black, 1);
+    draw_sprite_ext(chestplateSprite, quackTaunt ? 1 : 0, x+xOffsetChestplate*spr_dir-XOFFSET, y+yOffsetChestplate, spr_dir, 1, duckOrientation - 90, c_black, 1);
+    draw_sprite_ext(chestplateSprite, quackTaunt ? 1 : 0, x+xOffsetChestplate*spr_dir, y+yOffsetChestplate+YOFFSET, spr_dir, 1, duckOrientation - 90, c_black, 1);
+    draw_sprite_ext(chestplateSprite, quackTaunt ? 1 : 0, x+xOffsetChestplate*spr_dir, y+yOffsetChestplate-YOFFSET, spr_dir, 1, duckOrientation - 90, c_black, 1);
+    draw_sprite_ext(helmetSprite, quackTaunt ? 1 : 0, x+xOffsetHelmet*spr_dir+XOFFSET, y+yOffsetHelmet, spr_dir, 1, duckOrientation - 90, c_black, 1);
+    draw_sprite_ext(helmetSprite, quackTaunt ? 1 : 0, x+xOffsetHelmet*spr_dir-XOFFSET, y+yOffsetHelmet, spr_dir, 1, duckOrientation - 90, c_black, 1);
+    draw_sprite_ext(helmetSprite, quackTaunt ? 1 : 0, x+xOffsetHelmet*spr_dir, y+yOffsetHelmet+YOFFSET, spr_dir, 1, duckOrientation - 90, c_black, 1);
+    draw_sprite_ext(helmetSprite, quackTaunt ? 1 : 0, x+xOffsetHelmet*spr_dir, y+yOffsetHelmet-YOFFSET, spr_dir, 1, duckOrientation - 90, c_black, 1);
 }
 
 // draw the jetpack when being used

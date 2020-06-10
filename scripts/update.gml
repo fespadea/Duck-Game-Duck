@@ -76,7 +76,6 @@ if(duckState == DS_STAND){
                 launchAngle = 90;
         } else
             launchAngle = darctan2(-vsp, hsp);
-        print_debug(string(launchAngle));
         if(launchAngle < 0)
             launchAngle += 360;
         var angleOffset = maximumBendAngle - 45/exp(sqrt(sqr(hsp)+sqr(vsp))/5);

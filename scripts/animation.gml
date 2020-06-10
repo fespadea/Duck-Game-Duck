@@ -73,6 +73,24 @@ if(wingState == WS_UNARMED && duckState != DS_HURT){
     }
 }
 
+//armor offsets
+if(duckSpriteIndex == idleSprite){
+    xOffsetChestplate = 2;
+    yOffsetChestplate = -17;
+    xOffsetHelmet = 0;
+    yOffsetHelmet = -39;
+} else if(duckSpriteIndex == slideSprite){
+    xOffsetChestplate = 7;
+    yOffsetChestplate = -12;
+    xOffsetHelmet = -11;
+    yOffsetHelmet  = -12;
+} else if(duckSpriteIndex == crouchSprite){
+    xOffsetChestplate = 6;
+    yOffsetChestplate = -9;
+    xOffsetHelmet = 4;
+    yOffsetHelmet = -29;
+}
+
 #define changeSprite(newSprite)
 if(duckSpriteIndex != newSprite){
     duckSpriteIndex = newSprite;

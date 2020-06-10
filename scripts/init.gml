@@ -221,5 +221,9 @@ jetpackSfx = asset_get("sfx_ell_hover");
 //hat sprites
 hatSprites[0] = asset_get("empty_sprite");
 hatSprites[1] = sprite_get("hat_uglies");
+hatSprites[2] = sprite_get("hat_super");
+hatSprites[3] = sprite_get("hat_divers");
+hatSprites[4] = sprite_get("hat_burgers");
+hatSprites[5] = sprite_get("hat_sombrero");
 //hat sprite index
 hatSpriteIndex = get_color_profile_slot_r(0, 8);

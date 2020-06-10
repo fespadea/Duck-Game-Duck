@@ -1,19 +1,20 @@
 // CSS draw
 
+var num_alts = 6;
 var alt_cur = get_player_color(player);
 
 //hat selection
-#macro NUM_HATS 2
+#macro NUM_HATS 6
 #macro HAT_SWITCH_FRAME_LIMIT 12
 if("hatSpriteIndex" in self){
     if(hatTimer < HAT_SWITCH_FRAME_LIMIT){
         hatTimer++;
-        if(altPrev < alt_cur){
+        if((altPrev < alt_cur && !(altPrev == 0 && alt_cur == num_alts-1)) || (altPrev == num_alts - 1 && alt_cur == 0)){
             hatSpriteIndex++;
             if(hatSpriteIndex == NUM_HATS){
                 hatSpriteIndex = 0;
             }
-        } else if(altPrev > alt_cur){
+        } else if(altPrev > alt_cur || (altPrev == 0 && alt_cur == num_alts-1)){
             hatSpriteIndex--;
             if(hatSpriteIndex < 0){
                 hatSpriteIndex = NUM_HATS - 1;
@@ -41,8 +42,6 @@ patch_ver = "1.0";
 patch_day = "10";
 patch_month = "JUN";
 
-var num_alts = 6;
-
 
 
 //Alt name init. var doesn't work with arrays lol
@@ -66,8 +65,28 @@ alt_name[15] = "woag";
 
 hatName[0] = "No Hat";
 hatName[1] = "Uglies Hat";
+hatName[2] = "Super Hat";
+hatName[3] = "Divers Hat";
+hatName[4] = "Burgers Hat";
+hatName[5] = "Sombrero Hat";
 
+//setting the offsets of the hat sprites because load is slow
+sprite_change_offset("hat_uglies", 32, 32);
+sprite_change_offset("hat_super", 32, 32);
+sprite_change_offset("hat_divers", 32, 32);
+sprite_change_offset("hat_burgers", 32, 32);
+sprite_change_offset("hat_sombrero", 32, 32);
 
+//hat sprites
+hatSprites[0] = asset_get("empty_sprite");
+hatSprites[1] = sprite_get("hat_uglies");
+hatSprites[2] = sprite_get("hat_super");
+hatSprites[3] = sprite_get("hat_divers");
+hatSprites[4] = sprite_get("hat_burgers");
+hatSprites[5] = sprite_get("hat_sombrero");
+
+//draw the hat on the CSS
+draw_sprite_ext(hatSprites[hatSpriteIndex], 0, temp_x+36+64, temp_y-17+64, 2, 2, 0, -1, 1);
 
 //Patch
 

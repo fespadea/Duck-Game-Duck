@@ -48,7 +48,9 @@ if(!showArmor){
         xOffsetHat = (-2*dsin(duckOrientation) + 26*dcos(duckOrientation))*spr_dir;
         yOffsetHat = -26*dsin(duckOrientation) - 2*dcos(duckOrientation);
     }
+    shader_start();
     draw_sprite_ext(hatSprites[hatSpriteIndex], quackTaunt ? 1 : 0, x+xOffsetHat*spr_dir, y+yOffsetHat, spr_dir, 1, duckOrientation - 90, duckColor, 1);
+    shader_end();
 }
 
 var drawBeforeArmor = wingSprite == wingIdleSprite || wingSprite == wingCrouchSprite;

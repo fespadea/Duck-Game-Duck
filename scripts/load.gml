@@ -43,3 +43,7 @@ sprite_change_offset("equipment_jetpack_smoke", 16, 18);
 
 //hats sprites
 sprite_change_offset("hat_uglies", 32, 32);
+sprite_change_offset("hat_super", 32, 32);
+sprite_change_offset("hat_divers", 32, 32);
+sprite_change_offset("hat_burgers", 32, 32);
+sprite_change_offset("hat_sombrero", 32, 32);

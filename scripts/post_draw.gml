@@ -11,6 +11,43 @@ if(state == PS_WALL_JUMP){
     draw_sprite_ext(bootSprite, image_index, x, y, spr_dir, 1, 0, duckColor, 1);
 }
 
+// draw hat
+if(!showArmor){
+    var xOffsetHat = 0;
+    var yOffsetHat = 0;
+    if(duckSpriteIndex == idleSprite){
+        xOffsetHat = -2;
+        yOffsetHat = -44;
+    } else if(duckSpriteIndex == jumpSprite){
+        xOffsetHat = -2;
+        if(image_index % 2 = 0)
+            yOffsetHat = -44;
+        else
+            yOffsetHat = -46;
+    } else if(duckSpriteIndex == crouchSprite){
+        xOffsetHat = 0;
+        yOffsetHat = -34;
+    } else if(duckSpriteIndex == walkSprite){
+        xOffsetHat = -2;
+        switch(image_index % 6){
+            case 0:
+            case 1:
+            case 3:
+            case 4:
+                yOffsetHat = -46;
+                break;
+            case 2:
+            case 5:
+                yOffsetHat = -44;
+                break;
+        }
+    } else if(duckSpriteIndex == slideSprite){
+        xOffsetHat = -16;
+        yOffsetHat = -8;
+    }
+    draw_sprite_ext(hatSprites[hatSpriteIndex], quackTaunt ? 1 : 0, x+xOffsetHat*spr_dir, y+yOffsetHat, spr_dir, 1, duckOrientation - 90, duckColor, 1);
+}
+
 var drawBeforeArmor = wingSprite == wingIdleSprite || wingSprite == wingCrouchSprite;
 if(drawBeforeArmor){
     // wing animations

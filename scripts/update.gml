@@ -13,7 +13,6 @@ if(down_hard_pressed || state == PS_CROUCH){
 floatActive = false;
 if(vsp == fast_fall && fast_falling){
     vsp = prevVsp;
-    fast_falling = false;
 }
 if(duckState == DS_STAND){
     if(!duckStateTimer){

@@ -40,3 +40,6 @@ sprite_change_offset("equipment_chestplate", 12, 11);
 
 //vfx
 sprite_change_offset("equipment_jetpack_smoke", 16, 18);
+
+//hats sprites
+sprite_change_offset("hat_uglies", 32, 32);

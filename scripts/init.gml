@@ -3,7 +3,7 @@ crouchbox_spr = sprite_get("crouchbox");
 air_hurtbox_spr = sprite_get("airbox");
 hitstun_hurtbox_spr = sprite_get("hurt_hurtbox");
 
-char_height = 32;
+char_height = 36;
 idle_anim_speed = 0;
 crouch_anim_speed = 0;
 walk_anim_speed = .1;
@@ -217,3 +217,9 @@ jetpackSmokeEffect = hit_fx_create(sprite_get("equipment_jetpack_smoke"), 16);
 
 //sfx variables
 jetpackSfx = asset_get("sfx_ell_hover");
+
+//hat sprites
+hatSprites[0] = asset_get("empty_sprite");
+hatSprites[1] = sprite_get("hat_uglies");
+//hat sprite index
+hatSpriteIndex = get_color_profile_slot_r(0, 8);

@@ -24,6 +24,7 @@ sprite_change_offset("wing_slide", 24, 52);
 sprite_change_offset("wing_walk", 24, 52);
 sprite_change_offset("wing_jump", 24, 52);
 sprite_change_offset("wing_glide", 24, 52);
+sprite_change_offset("wing_weapon", 8, 6);
 
 //left wing
 sprite_change_offset("wing_left_jump", 24, 52);

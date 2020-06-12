@@ -50,6 +50,7 @@ if(duckState == DS_STAND){
     }
 } else if(duckState == DS_HURT){
     if(!duckStateTimer){
+        wingState = WS_UNARMED;
         ground_friction = standGroundFriction;
         air_friction = standAirFriction;
         max_fall = standMaxFall;

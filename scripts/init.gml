@@ -202,13 +202,18 @@ wingSlideSprite = sprite_get("wing_slide");
 wingWalkSprite = sprite_get("wing_walk");
 wingJumpSprite = sprite_get("wing_jump");
 wingGlideSprite = sprite_get("wing_glide");
+wingArmedSprite = sprite_get("wing_weapon");
 wingEmpty = asset_get("empty_sprite");
 // sprite variables
 wingSprite = wingIdleSprite;
 wingImage = 0;
+// offsets
+wingXOffset = 0;
+wingYOffset = 0;
 
 //wing states
 WS_UNARMED = 0;
+WS_SWORD = 1;
 //wing state variable
 wingState = WS_UNARMED;
 

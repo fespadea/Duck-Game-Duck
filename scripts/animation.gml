@@ -53,22 +53,45 @@ if(state == PS_PRATFALL || state == PS_PRATLAND){
 
 // wing animations
 wingSprite = wingEmpty;
-if(wingState == WS_UNARMED && duckState != DS_HURT){
-    wingImage = image_index;
-    if(duckSpriteIndex == idleSprite){
-        wingSprite = wingIdleSprite;
-    } else if(duckSpriteIndex == crouchSprite){
-        wingSprite = wingCrouchSprite;
-    } else if(duckSpriteIndex == slideSprite){
-        wingSprite = wingSlideSprite;
-    } else if(duckSpriteIndex == walkSprite){
-        wingSprite = wingWalkSprite;
-    } else if(duckSpriteIndex == jumpSprite){
-        if(floatActive){
-            wingSprite = wingGlideSprite;
-            wingImage = floor(get_gameplay_time()/3);
-        } else {
-            wingSprite = wingJumpSprite;
+if(duckState != DS_HURT){
+    if(wingState == WS_UNARMED){
+        wingImage = image_index;
+        wingXOffset = 0;
+        wingYOffset = 0;
+        if(duckSpriteIndex == idleSprite){
+            wingSprite = wingIdleSprite;
+        } else if(duckSpriteIndex == crouchSprite){
+            wingSprite = wingCrouchSprite;
+        } else if(duckSpriteIndex == slideSprite){
+            wingSprite = wingSlideSprite;
+        } else if(duckSpriteIndex == walkSprite){
+            wingSprite = wingWalkSprite;
+        } else if(duckSpriteIndex == jumpSprite){
+            if(floatActive){
+                wingSprite = wingGlideSprite;
+                wingImage = floor(get_gameplay_time()/3);
+            } else {
+                wingSprite = wingJumpSprite;
+            }
+        }
+    } else {
+        wingImage = 0;
+        wingSprite = wingArmedSprite;
+        if(duckSpriteIndex == idleSprite){
+            wingXOffset = 0;
+            wingYOffset = 0;
+        } else if(duckSpriteIndex == crouchSprite){
+            wingXOffset = 0;
+            wingYOffset = 0;
+        } else if(duckSpriteIndex == slideSprite){
+            wingXOffset = 0;
+            wingYOffset = 0;
+        } else if(duckSpriteIndex == walkSprite){
+            wingXOffset = 0;
+            wingYOffset = 0;
+        } else if(duckSpriteIndex == jumpSprite){
+            wingXOffset = 0;
+            wingYOffset = 0;
         }
     }
 }

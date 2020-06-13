@@ -211,6 +211,8 @@ wingImage = 0;
 // offsets
 wingXOffset = 0;
 wingYOffset = 0;
+// rotation
+wingRotation = 0;
 
 //wing states
 WS_UNARMED = 0;

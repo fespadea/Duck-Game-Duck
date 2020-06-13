@@ -24,7 +24,7 @@ if(duckState == DS_STAND){
         duckOrientation = 90;
     }
     max_fall = standMaxFall;
-    if(state != PS_ROLL_BACKWARD && state != PS_ROLL_FORWARD){
+    if(state != PS_ROLL_BACKWARD && state != PS_ROLL_FORWARD && state != PS_WALL_JUMP){
         if(left_down){
             spr_dir = -1;
         } else if(right_down){

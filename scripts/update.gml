@@ -19,6 +19,7 @@ if(duckState == DS_STAND){
         ground_friction = standGroundFriction;
         air_friction = standAirFriction;
         air_accel = standAirAccel;
+        max_jump_hsp = standMaxJumpHsp;
         slideActive = false;
         duckOrientation = 90;
     }
@@ -40,6 +41,7 @@ if(duckState == DS_STAND){
         max_fall = slideMaxFall;
         air_accel = slideAirAccel;
     }
+    max_jump_hsp = abs(hsp);
     // decide if sliding
     if(abs(hsp) > .3 && !free){
         slideActive = true;
@@ -55,6 +57,7 @@ if(duckState == DS_STAND){
         air_friction = standAirFriction;
         max_fall = standMaxFall;
         air_accel = standAirAccel;
+        max_jump_hsp = standMaxJumpHsp;
         slideActive = false;
         duckOrientation = 90;
         duckBottomOrientation = -duckOrientation;

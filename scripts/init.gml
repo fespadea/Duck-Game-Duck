@@ -141,6 +141,7 @@ standGroundFriction = ground_friction;
 standAirFriction = air_friction;
 standMaxFall = max_fall;
 standAirAccel = air_accel;
+standMaxJumpHsp = max_jump_hsp;
 //DS_CROUCH
 slideGroundFriction = ground_friction/5;
 slideAirFriction = air_friction/2;

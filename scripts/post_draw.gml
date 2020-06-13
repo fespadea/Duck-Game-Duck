@@ -57,7 +57,7 @@ var drawBeforeArmor = wingSprite == wingIdleSprite || wingSprite == wingCrouchSp
 if(drawBeforeArmor){
     // wing animations
     shader_start();
-    draw_sprite_ext(wingSprite, wingImage, x, y, spr_dir, 1, 0, duckColor, 1);
+    draw_sprite_ext(wingSprite, wingImage, x+wingXOffset*spr_dir, y+wingYOffset, spr_dir, 1, 0, duckColor, 1);
     shader_end();
 }
 
@@ -70,6 +70,6 @@ if(showArmor){
 if(!drawBeforeArmor){
     // wing animations
     shader_start();
-    draw_sprite_ext(wingSprite, wingImage, x, y, spr_dir, 1, 0, duckColor, 1);
+    draw_sprite_ext(wingSprite, wingImage, x+wingXOffset*spr_dir, y+wingYOffset, spr_dir, 1, 0, duckColor, 1);
     shader_end();
 }

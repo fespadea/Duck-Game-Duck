@@ -79,19 +79,40 @@ if(duckState != DS_HURT){
         wingSprite = wingArmedSprite;
         if(duckSpriteIndex == idleSprite){
             wingXOffset = 0;
-            wingYOffset = 0;
+            wingYOffset = -18;
         } else if(duckSpriteIndex == crouchSprite){
             wingXOffset = 0;
-            wingYOffset = 0;
+            wingYOffset = -8;
         } else if(duckSpriteIndex == slideSprite){
-            wingXOffset = 0;
-            wingYOffset = 0;
+            wingXOffset = 4;
+            wingYOffset = -4;
         } else if(duckSpriteIndex == walkSprite){
             wingXOffset = 0;
-            wingYOffset = 0;
+            wingYOffset = -16;
+            switch(image_index % 6){
+                case 0:
+                case 1:
+                case 5:
+                    wingXOffset = 0;
+                    wingYOffset = -16;
+                    break;
+                case 2:
+                case 3:
+                case 4:
+                    wingXOffset = -2;
+                    wingYOffset = -16;
+                    break;
+            }
         } else if(duckSpriteIndex == jumpSprite){
             wingXOffset = 0;
-            wingYOffset = 0;
+            switch(image_index){
+                case 0:
+                    wingYOffset = -16;
+                    break;
+                case 1:
+                    wingYOffset = -18;
+                    break;
+            }
         }
     }
 }
